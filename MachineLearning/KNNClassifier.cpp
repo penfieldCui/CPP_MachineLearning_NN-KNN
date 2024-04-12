@@ -8,23 +8,19 @@ void KNNClassifier::setK(int k) {
 
 
 // function to train KNN classifier
-void KNNClassifier::train(const vector<DataItem> dataSet) {
+void KNNClassifier::train(const vector<DataItem>& dataSet) {
 	this->dataSet = dataSet;
 }
 
 // function to test the classifier's performance
-double KNNClassifier::test(const vector<DataItem> testSet) {
+double KNNClassifier::test(const vector<DataItem>& testSet) {
 
 
 	return 0;
 }
 
 // function to predict by input data
-Label KNNClassifier::predict(const DataItem d) {
-
-
-	
-
+Label KNNClassifier::predict(const DataItem& d) {
 
 	double distance;
 	vector<pair<double, Label>> neighbors;

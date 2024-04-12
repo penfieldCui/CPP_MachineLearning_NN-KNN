@@ -1,5 +1,7 @@
 #pragma once
+#include <iostream>
 #include <vector>
+#include <ostream>
 
 using namespace std;
 
@@ -40,9 +42,37 @@ public:
 	/// @return Euclidean distance of this data point and the input data point
 	double distanceFrom (const DataItem d) const;
 
-	/// @brief 
-/// @author Pen
-/// @return label of current data, 0 means unknown
+	/// @brief getter of label
+	/// @author Pen
+	/// @return label of current data, 0 means unknown
 	Label getLabel() const;
+
+	/// @brief setter of label
+	/// @param label 
+	void setLabel(Label label);
+
+	/// @brief getter of feature vector
+	/// @author Pen
+	/// @return a feature vector of the data
+	vector <double> getFeatures() const;
 };
+
+/// @brief 
+/// 
+/// a operator overload that used to print the dataItem
+/// @param stream ,ostream type
+/// @param x ,dataItem, @see DataItem
+/// @return ostream for chain functions call
+ostream& operator<<(ostream& stream, DataItem& x);
+
+
+/// @brief 
+/// 
+/// a operator overload that used to print the Label
+/// @param stream ,ostream type
+/// @param x ,Label, @see Label
+/// @return ostream for chain functions call
+ostream& operator<<(ostream& stream, Label& x);
+
+
 

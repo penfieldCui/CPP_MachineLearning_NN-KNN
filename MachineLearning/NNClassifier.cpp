@@ -1,19 +1,19 @@
 #include "NNClassifier.h"
 
 // function to train NN classifier
-void NNClassifier::train(const vector<DataItem> dataSet) {
+void NNClassifier::train(const vector<DataItem>& dataSet) {
 	this->dataSet = dataSet;
 }
 
 // function to test the classifier's performance
-double NNClassifier::test(const vector<DataItem> testSet) {
+double NNClassifier::test(const vector<DataItem>& testSet) {
 
 
 	return 0;
 }
 
 // function to predict by input data
-Label NNClassifier::predict(const DataItem d) {
+Label NNClassifier::predict(const DataItem& d) {
 	Label nearestLabel = UNKNOWN;
 	double distance;
 	double min = d.distanceFrom(dataSet[0]);
