@@ -1,6 +1,6 @@
 #include "NNClassifier.h"
 
-// function to train classifier
+// function to train NN classifier
 void NNClassifier::train(const vector<DataItem> dataSet) {
 	this->dataSet = dataSet;
 }

@@ -34,17 +34,15 @@ public:
 	DataItem(vector <double> f, Label i);
 
 	/// @brief 
-	/// @author Pen
-	/// @return label of current data, 0 means unknown
-	Label getLabel();
-
-
-	/// @brief 
 	/// Calculate Euclidean distance between two data point
 	/// @author Pen
 	/// @param an other dataItem 
 	/// @return Euclidean distance of this data point and the input data point
 	double distanceFrom (const DataItem d) const;
 
+	/// @brief 
+/// @author Pen
+/// @return label of current data, 0 means unknown
+	Label getLabel() const;
 };
 

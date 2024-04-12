@@ -1,16 +1,23 @@
 #pragma once
-
 #include "Classifier.h"
 
-
 /// @classes
-/// @brief nearest neighbor classifier, inherit Classifier
-class NNClassifier: public Classifier
+/// @brief K nearest neighbor classifier, inherit Classifier
+/// 
+/// use K nearest neighbor to predict the label 
+class KNNClassifier : public Classifier
 {
+	int k;
 	vector<DataItem> dataSet;
 
 public:
-	/// @brief function to train nearest neighbor classifier
+
+	/// @brief k setter
+	/// @param k, an integer 
+	void setK(int k);
+
+
+	/// @brief function to train KNN classifier
 	/// @author Zongping
 	/// @date 2024/4/12
 	void train(const vector<DataItem> dataSet);
@@ -27,4 +34,3 @@ public:
 	/// @date 2024/4/12
 	Label predict(const DataItem d);
 };
-

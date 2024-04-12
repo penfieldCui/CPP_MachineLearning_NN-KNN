@@ -6,7 +6,7 @@ DataItem::DataItem(vector <double> f, Label i) : features(f), label(i) {
 }
 
 
-Label DataItem::getLabel() {
+Label DataItem::getLabel() const{
 	return label;
 }
 

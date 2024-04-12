@@ -131,12 +131,14 @@
     <ClInclude Include="Classifier.h" />
     <ClInclude Include="DataItem.h" />
     <ClInclude Include="FileIO.h" />
+    <ClInclude Include="KNNClassifier.h" />
     <ClInclude Include="NNClassifier.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classifier.cpp" />
     <ClCompile Include="DataItem.cpp" />
     <ClCompile Include="FileIO.cpp" />
+    <ClCompile Include="KNNClassifier.cpp" />
     <ClCompile Include="NNClassifier.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
