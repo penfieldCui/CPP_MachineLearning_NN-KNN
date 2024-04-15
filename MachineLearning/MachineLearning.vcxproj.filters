@@ -33,7 +33,7 @@
     <ClInclude Include="AnotherClassifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
+    <ClInclude Include="subMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

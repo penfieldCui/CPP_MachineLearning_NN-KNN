@@ -1,25 +1,27 @@
-#include "menu.h"
+#include "subMenu.h"
 
-#include "DataItem.h"
-#include <string>
-#include <sstream>
 
 using namespace std;
 
 
 // display sub menu and prompt user to enter data 
 void subMenu(Classifier& c) {
-	int option;
+	char option = '\0';
 	FileIO fileIO;
 
-	cout << "1. Use sample data (x,y,z)" << endl <<
-		"2. Use file ('trainingData.txt'," <<
-		"'testingData.txt', or 'unknownData.txt')" << endl << 
-		"0. Go back" << endl;
 
-	while(cin >> option) {
+	do {
+
+		cout <<
+			"*********************" << endl <<
+			"1. Predict sample data (x,y,z)" << endl <<
+			"2. Predict data in file" << endl <<
+			"3. Test with test data file" << endl <<
+			"0. Go back" << endl;
+		cout << "please enter your choice: ";
+		cin >> option;
 		switch (option) {
-		case 1: {
+		case '1': {
 
 			string line;
 			cout << "please enter (x,y,z) , use ',' as delimiter" << endl;
@@ -28,37 +30,48 @@ void subMenu(Classifier& c) {
 			DataItem d(fileIO.readFeaturesFromSStream(lineAsStream), UNKNOWN);
 
 			Label l = c.predict(d);
-			cout << " -- Predict result: " << l << endl;
-			//cout << "Predict result: " << c.predict(d) << endl;
-			return;
+			cout << endl<<" - Predict result: " << l << endl << endl;
+			break;
 		}
-		case 2: {
+		case '2': {
 			string fileName;
-			cout << "please Enter File Name: ";
+			cout << "please Enter File Name('unknownData.txt'): ";
 			cin >> fileName; // more validation 
 			
 			vector<DataItem> dataSet = fileIO.readFile(fileName); // 0,0,0
 
 			/* predicting */
 			for (int i = 0; i < dataSet.size(); i++) {
-				cout << "predicting " << dataSet[i] << endl;
+				cout << "predicting " << dataSet[i];
 				Label l = c.predict(dataSet[i]);
-				cout << "result: " << l << endl;
+				cout << "   result: " << l << endl;
 				dataSet[i].setLabel(l);
 			}
 
 			/* write to result.txt */
 			fileIO.writeResults("result.txt", dataSet);
-				
-			return;
+			cout << endl << endl << " - Predict result written, plz check result.txt" << endl << endl;
+			break;
 		}
-		case 0: {
+		case '3': {
+			string fileName;
+			cout << "please Enter File Name('testingData.txt'): ";
+			cin >> fileName; // more validation 
+			vector<DataItem> dataSet = fileIO.readFile(fileName); // 0,0,0,0
+			double passPercent = 100 * c.test(dataSet);
+
+			cout << endl << " - " << fixed << setprecision(2) << passPercent << "% of test cases passed" << endl << endl;
+
+			break;
+		}
+		case '0': {
 			return;
 		}
 		default:
-			cout << "Invalid Choice" << endl;
+			cout << "Invalid Choice: " << option << endl;
 			break;
 		}
-	}
+
+	} while (option);
 }
 

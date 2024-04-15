@@ -1,4 +1,10 @@
 #pragma once
+
+
+/// @file 
+/// @brief this file is class of DataItem, enum of Label and their operator overload functions
+/// @author Pen
+/// @date 2024/4/12
 #include <iostream>
 #include <vector>
 #include <ostream>
@@ -22,28 +28,25 @@ enum Label
 
 /// @classes
 /// @brief Data class that hold multidimensional features and label
+/// @author Pen
+/// @date 2024/4/12
 class DataItem
 {
 	vector <double> features;
 	Label label;
 
 public:
-	/// @brief
-	///
-	/// Para constructor using initializer 
-	/// @author Pen
-	/// @date 2024/4/12
-	DataItem(vector <double> f, Label i);
+	/// @brief Para constructor using initializer 
+	/// @param features , double vector 
+	/// @param label , enum
+	DataItem(vector <double> features, Label label);
 
-	/// @brief 
-	/// Calculate Euclidean distance between two data point
-	/// @author Pen
+	/// @brief Calculate Euclidean distance between two data point
 	/// @param an other dataItem 
 	/// @return Euclidean distance of this data point and the input data point
-	double distanceFrom (const DataItem d) const;
+	double distanceFrom (const DataItem dataItem) const;
 
 	/// @brief getter of label
-	/// @author Pen
 	/// @return label of current data, 0 means unknown
 	Label getLabel() const;
 
@@ -52,7 +55,6 @@ public:
 	void setLabel(Label label);
 
 	/// @brief getter of feature vector
-	/// @author Pen
 	/// @return a feature vector of the data
 	vector <double> getFeatures() const;
 };

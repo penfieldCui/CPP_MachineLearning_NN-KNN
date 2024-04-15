@@ -1,27 +1,30 @@
 #pragma once
 
+
+/// @file 
+/// @brief this file is class of AnotherClassifier
+/// @author Pen
+/// @date 2024/4/12
 #include "Classifier.h"
 
 
 /// @classes
-/// @brief another classifier, inherit Classifier, not implemented yet
+/// @brief Another classifier, inherit Classifier, not implemented yet @see Classifier
+/// @author Pen
+/// @date 2024/4/12
 class AnotherClassifier : public Classifier
 {
+	vector<DataItem> dataSet;
+
+public:
 	/// @brief function to train KNN classifier
-	/// @author Zongping
-	/// @date 2024/4/12
+	/// 
+	/// Not implemented yet
 	void train(const vector<DataItem>& dataSet);
 
-	/// @brief function to test the classifier's performance
-	/// @param testSet 
-	/// @return correct predict / size of test size
-	/// @author Zongping
-	/// @date 2024/4/12
-	double test(const vector<DataItem>& testSet);
-
 	/// @brief function to predict by input data
-	/// @author Zongping
-	/// @date 2024/4/12
-	Label predict(const DataItem& d);
+	/// 
+	/// Not implemented yet
+	Label predict(const DataItem& dataItem);
 };
 

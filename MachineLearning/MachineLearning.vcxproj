@@ -133,7 +133,7 @@
     <ClInclude Include="DataItem.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="KNNClassifier.h" />
-    <ClInclude Include="menu.h" />
+    <ClInclude Include="subMenu.h" />
     <ClInclude Include="NNClassifier.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,10 @@
 #pragma once
 
+/// @file 
+/// @brief this file is class of FileIO
+/// @author Tyler
+/// @date 2024/4/12
+
 #include "DataItem.h"
 
 #include <iostream>
@@ -14,6 +19,11 @@
 
 using namespace std;
 
+
+/// @classes
+/// @brief a class to handle file I/O, including read file, write and read value from stream
+/// @author Tyler
+/// @date 2024/4/12
 class FileIO {
 
 public:

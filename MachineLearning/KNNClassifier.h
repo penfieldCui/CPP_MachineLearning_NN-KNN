@@ -1,10 +1,14 @@
 #pragma once
+
+/// @file 
+/// @brief this file is for concrete class KNNClassifier
+/// @author Pen
 #include "Classifier.h"
 
 /// @classes
-/// @brief K nearest neighbor classifier, inherit Classifier
-/// 
-/// use K nearest neighbor to predict the label 
+/// @brief K nearest neighbor classifier, inherit Classifier, has a data set of DataItem and a integer k, implement train and predict
+/// @author Pen
+/// @date 2024/4/12
 class KNNClassifier : public Classifier
 {
 	int k;
@@ -18,19 +22,13 @@ public:
 
 
 	/// @brief function to train KNN classifier
-	/// @author Zongping
-	/// @date 2024/4/12
+	/// @param dataSet for training the model
 	void train(const vector<DataItem>& dataSet);
 
-	/// @brief function to test the classifier's performance
-	/// @param testSet 
-	/// @return correct predict / size of test size
-	/// @author Zongping
-	/// @date 2024/4/12
-	double test(const vector<DataItem>& testSet);
-
 	/// @brief function to predict by input data
-	/// @author Zongping
-	/// @date 2024/4/12
-	Label predict(const DataItem& d);
+	/// 
+	/// find a set of nearest neighbors of input data point and return the label that appear most frequently in the set
+	/// @param single DataItem 
+	/// @return Label, return UNKNOWN when the dataSet is empty
+	Label predict(const DataItem& dataItem);
 };

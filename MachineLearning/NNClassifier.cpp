@@ -5,13 +5,6 @@ void NNClassifier::train(const vector<DataItem>& dataSet) {
 	this->dataSet = dataSet;
 }
 
-// function to test the classifier's performance
-double NNClassifier::test(const vector<DataItem>& testSet) {
-
-
-	return 0;
-}
-
 // function to predict by input data
 Label NNClassifier::predict(const DataItem& d) {
 	Label nearestLabel = UNKNOWN;
@@ -27,3 +20,4 @@ Label NNClassifier::predict(const DataItem& d) {
 
 	return nearestLabel;
 }
+

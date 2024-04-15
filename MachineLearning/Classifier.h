@@ -1,36 +1,35 @@
 #pragma once
 
-#include"DataItem.h"
 
+/// @file 
+/// @brief this file is class of AnotherClassifier
+/// @author Pen
+/// @date 2024/4/12
+#include"DataItem.h"
 #include <vector>
 
 using namespace std;
 
 /// @classes
-/// @brief abstract class of classifier
+/// @brief abstract class of classifier, with a test function that have being implemented in Classifier.cpp
+/// @date 2024/4/12
 class Classifier
 {
 
-	vector<DataItem> dataSet;
-
 public:
 	
-
 	/// @brief A virtual function to train classifier
-	/// @author Zongping
-	/// @date 2024/4/12
+	/// @param dataSet for training the model
 	virtual void train(const vector<DataItem>& dataSet) = 0;
 
-	/// @brief A virtual function to test the classifier's performance
-	/// @param testSet 
-	/// @return correct predict / size of test size
-	/// @author Zongping
-	/// @date 2024/4/12
-	virtual double test(const vector<DataItem>& testSet) = 0;
+	/// @brief A function to test the classifier's performance
+	/// @param testSet for testing the module
+	/// @return correct predict / size of test data
+	double test(const vector<DataItem>& testSet);
 
 	/// @brief A virtual function to predict by input data
-	/// @author Zongping
-	/// @date 2024/4/12
-	virtual Label predict(const DataItem& d) = 0;
+	/// @param dataItem 
+	/// @return the predicted label
+	virtual Label predict(const DataItem& dataItem) = 0;
 };
 

@@ -5,7 +5,7 @@
 #include "AnotherClassifier.h"
 #include "DataItem.h"
 
-#include "menu.h"
+#include "subMenu.h"
 
 #include <iostream>
 
@@ -26,43 +26,63 @@ int main(void) {
 	/* train */
 	NNClassifier n;
 	
-
 	KNNClassifier kn;
+
+	//AnotherClassifier a;
 
 
 	/* interact */
-	int option = -1;
+	char option = '\0';
 	int k = 0;
+
+	// main menu
 	do {
 		cout << endl<<
 			"*********************" << endl <<
-			"Choose Classifier" << endl <<
+			"*        MAIN       *" << endl <<
+			"*********************" << endl <<
+			"Choose Classifier or exit" << endl <<
 			"1. NNClassifier (Nearest Neighbour)" << endl <<
 			"2. KNNClassifier" << endl <<
 			"3. AnotherClassifier" << endl <<
 			"0. quit" << endl;
+		cout << "please enter the number: ";
 		cin >> option;
 		switch (option) {
-		case 1:
+		case '1':
+
+			cout << endl <<
+				"*********************" << endl <<
+				"*   NN Classifier   *" << endl;
 
 			n.train(dataSet);
 			subMenu(n);
 
 			break;
-		case 2: {
+		case '2': {
 
-			cout << "Please enter k as integer for KNN" << endl;
+			cout << "Please enter k as integer for KNN: ";
 			cin >> k;
+			if (!(k>0)) {
+				cout << "Invalid input" << endl;
+				break;
+			}
+
 			kn.setK(k);
 			kn.train(dataSet);
+
+
+			cout << endl <<
+				"*********************" << endl <<
+				"*        KNN        *" << endl;
 			subMenu(kn);
 			break;
 		}
-		case 3: {
-			cout << "Please enter k as integer for KNN" << endl;
+		case '3': {
+			cout << endl << "   AnotherClassifier is not implemented yet" << endl;
 			break;
 		}
-		case 0: {
+		case '0': {
 			exit(0);
 			break;
 		}
@@ -72,24 +92,6 @@ int main(void) {
 		}
 
 	} while (option);
-
-	
-
-	//NNClassifier n;
-
-
-	//n.train(dataSet);
-
-	//cout << "NN predict: " << n.predict(DataItem({0,1,0}, UNKNOWN)) << endl;
-
-
-	/*KNNClassifier kn;
-	kn.train(dataSet);
-	kn.setK(6);
-	cout << "KNN predict: " << kn.predict(DataItem({ 0,1,0 }, UNKNOWN)) << endl;
-	cout << "KNN predict: " << kn.predict(DataItem({ 0,0.7,0 }, UNKNOWN)) << endl;
-	*/
-	//cout << "idk";
 
 	return 0;
 }

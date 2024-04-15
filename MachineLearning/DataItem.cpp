@@ -1,19 +1,23 @@
 #include "DataItem.h"
 
-DataItem::DataItem(vector <double> f, Label i) : features(f), label(i) {
+
+// using initilizer list to construct a DataItem
+DataItem::DataItem(vector <double> f, Label l) : features(f), label(l) {
 
 }
 
 
+// getter of label
 Label DataItem::getLabel() const{
 	return label;
 }
 
+// setter of label
 void DataItem::setLabel(Label label) {
 	this->label = label;
 }
 
-
+// getter of feature vector
 vector <double>  DataItem::getFeatures() const {
 	return features;
 }
@@ -29,7 +33,7 @@ double DataItem::distanceFrom(const DataItem d) const {
 	return sqrt(sum);
 }
 
-
+// a operator overload that used to print the dataItem
 ostream& operator<<(ostream& stream, DataItem& x) {
 	stream << "data features: ";
 	for (double feature : x.getFeatures())
@@ -37,6 +41,7 @@ ostream& operator<<(ostream& stream, DataItem& x) {
 	return stream;
 }
 
+// a operator overload that used to print the Label
 ostream& operator<<(ostream& stream, Label& x) {
 	switch (x)
 	{
